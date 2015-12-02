@@ -1,3 +1,7 @@
+#define _CRTDBG_MAP_ALLOC
+#include <stdlib.h>
+#include <crtdbg.h>
+
 #include <iostream>
 #include "DoubleLinkedList.h"
 
@@ -10,6 +14,10 @@ inline void HoldPromptOpen()
 
 int main()
 {
+#if _DEBUG
+	_CrtDumpMemoryLeaks();
+	_CrtSetDbgFlag(_CRTDBG_ALLOC_MEM_DF | _CRTDBG_LEAK_CHECK_DF);
+#endif
 	DoubleLinkedList dll;
 	for (int i = 0; i < numberOfElements; i++)
 	{

@@ -2,6 +2,14 @@
 
 #define DLL DoubleLinkedList 
 
+//for leak checking
+#ifdef _DEBUG
+	#ifndef DBG_NEW
+		#define DBG_NEW new ( _NORMAL_BLOCK , __FILE__ , __LINE__ )
+		#define new DBG_NEW
+	#endif
+#endif  // _DEBUG
+
 DLL::DoubleLinkedList()
 {
 
@@ -14,7 +22,7 @@ DLL::~DoubleLinkedList()
 		return;
 	}
 	Node* current = first;
-	Node* previous = current->next;
+	Node* previous;
 	while (current != nullptr)
 	{
 		previous = current;
