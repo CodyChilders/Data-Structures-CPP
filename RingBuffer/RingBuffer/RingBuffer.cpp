@@ -41,6 +41,15 @@ double RB::AverageContents()
 	return avg;
 }
 
+void RB::Resize(int newSize)
+{
+	if (newSize <= 0)
+		return;
+	delete[] buffer;
+	buffer = new int[newSize];
+	EmptyInitialBuffer();
+}
+
 std::string RB::ToString()
 {
 	std::string returnVal = "[ ";
@@ -48,7 +57,7 @@ std::string RB::ToString()
 	{
 		if (i == currentWriteIndex)
 		{
-			returnVal += "(";
+			returnVal += "("; //parens denote which element the next write will be at
 		}
 		returnVal += std::to_string(buffer[i]);
 		if (i == currentWriteIndex)

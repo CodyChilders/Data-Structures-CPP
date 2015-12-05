@@ -9,6 +9,7 @@ public:
 	~RingBuffer();
 	void Add(int value);
 	double AverageContents();
+	void Resize(int newSize);
 	std::string ToString();
 private:
 	int* buffer;

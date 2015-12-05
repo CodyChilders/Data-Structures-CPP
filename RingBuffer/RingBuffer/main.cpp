@@ -47,5 +47,12 @@ int main()
 	std::cout << "Overwrote with random data - make sure it is still sensible: " << ringbuf.ToString() << std::endl;
 	std::cout << "Average: " << ringbuf.AverageContents() << std::endl << std::endl;
 
+	ringbuf.Resize(500);
+	for (int i = 0; i < 1234; i++)
+	{
+		ringbuf.Add(GetRand());
+	}
+	std::cout << "Buffer resized to 500.  New average: " << ringbuf.AverageContents() << std::endl << std::endl;
+
 	std::cin.get(); //hold window open
 }
