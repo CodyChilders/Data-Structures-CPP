@@ -1,9 +1,5 @@
-#define _CRTDBG_MAP_ALLOC
-#include <stdlib.h>
-#include <crtdbg.h>
-
 #include <iostream>
-//#include <cstdlib>
+#include <cstdlib>
 #include <ctime>
 #include "RingBuffer.h"
 
@@ -21,8 +17,6 @@ int GetRand()
 
 int main()
 {
-	_CrtDumpMemoryLeaks();
-	_CrtSetDbgFlag(_CRTDBG_ALLOC_MEM_DF | _CRTDBG_LEAK_CHECK_DF);
 	RB ringbuf(capacity);
 	srand(time(NULL));
 	for (int i = 0; i < 15; i++)
