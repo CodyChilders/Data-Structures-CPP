@@ -51,14 +51,12 @@ int main()
 	}
 	std::cout << dll.ToString() << std::endl << std::endl;
 
-	//fix this operation
 	std::cout << "Adding a -500 at indices 0, 5, (length - 1), and 9999 (should be skipped and not crash)" << std::endl;
 	dll.InsertAt(0, -500);
 	dll.InsertAt(5, -500);
 	dll.InsertAt(dll.CurrentCapacity() - 1, -500);
 	dll.InsertAt(9999, -500);
 	std::cout << dll.ToString() << std::endl << std::endl;
-	//
 
 	
 	std::cout << "Removing first instances of numbers -500, 15, and 999999" << std::endl;
