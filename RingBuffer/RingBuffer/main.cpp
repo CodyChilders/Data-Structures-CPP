@@ -5,6 +5,13 @@
 
 #define capacity 25
 
+int max(int a, int b)
+{
+	if (a > b)
+		return a;
+	return b;
+}
+
 int GetRand()
 {
 	int val = rand();
@@ -52,7 +59,17 @@ int main()
 	{
 		ringbuf.Add(GetRand());
 	}
-	std::cout << "Buffer resized to 500.  New average: " << ringbuf.AverageContents() << std::endl << std::endl;
+	std::cout << "Buffer resized to 500.  New average: " << ringbuf.AverageContents() << std::endl;
+	std::cout << "Current buffer: " << ringbuf.ToString() << std::endl << std::endl;
+
+	ringbuf.Resize(max(rand(), 600));
+	int loopMax = rand();
+	for (int i = 0; i < loopMax; i++)
+	{
+		ringbuf.Add(GetRand());
+	}
+	std::cout << "Resized buffer to a random size.  Current buffer: " << ringbuf.ToString() << std::endl;
+	std::cout << "Average: " << ringbuf.AverageContents() << std::endl;
 
 	std::cin.get(); //hold window open
 }

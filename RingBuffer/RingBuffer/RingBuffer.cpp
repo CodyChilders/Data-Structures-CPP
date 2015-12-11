@@ -47,6 +47,7 @@ void RB::Resize(int newSize)
 		return;
 	delete[] buffer;
 	buffer = new int[newSize];
+	capacity = newSize;
 	EmptyInitialBuffer();
 }
 
