@@ -37,7 +37,7 @@ double RB::AverageContents()
 	{
 		sum += buffer[i];
 	}
-	float avg = static_cast<double>(sum) / static_cast<double>(capacity);
+	double avg = static_cast<double>(sum) / static_cast<double>(capacity);
 	return avg;
 }
 
